@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="generator" content="">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700" rel="stylesheet">
+        <meta property="og:title" content="웹프로그래밍 공부꿀팁사이트"/>
+        <meta property="og:description" content="웹프로그래밍 공부꿀팁사이트 공유해주시고 가세요!"/>
+        <meta property="og:image"
+              content="https://s3.ap-northeast-2.amazonaws.com/grepp-cloudfront/programmers_imgs/learn/thumb-course-phthon-basic.jpg"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+              crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                crossorigin="anonymous"></script>
+        <title>python공부 꿀팁사이트</title>
+        <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+        <style>
+        </style>
+        <script>
+        </script>
+    </head>
+
+    <div class="head">
+        <div class="mytitle">
+            <h1>{{ session['user']['name'] }}님 환영합니다 </h1><br>
+            <h2>Javascript 공부 꿀팁사이트</h2>
+        </div>
+    </div>
+    <h5 class="center">
+        <button onclick="open_box()">꿀팁사이트공유하기</button>
+    </h5>
+    </div>
+    <div class="card-wrapper">
+        <div class="mypost" id="post-box">
+            <div class="form-floating mb-3">
+                <input id="url" type="email" class="form-control" placeholder="name@example.com">
+                <label>꿀팁사이트URL</label>
+            </div>
+            <div class="form-floating mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">별점</label>
+                <select class="form-select" id="star">
+                    <option selected>--------------- 선택하기 --------</option>
+                    <option value="1">⭐</option>
+                    <option value="2">⭐⭐</option>
+                    <option value="3">⭐⭐⭐</option>
+                    <option value="4">⭐⭐⭐⭐</option>
+                    <option value="5">⭐⭐⭐⭐⭐</option>
+                </select>
+            </div>
+            <div class="form-floating mb-3">
+                <textarea id="comment" class="form-control" placeholder="Leave a comment here"></textarea>
+                <label for="floatingTextarea2">코멘트</label>
+            </div>
+            <div class="mybtn">
+                <button onclick="posting()" type="button" class="btn btn-dark">사이트기록하기</button>
+                <!--사이트기록하기 버튼 선택 > posting() 함수로 이동됨 -->
+                <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
+            </div>
+        </div>
+        <!----------  여기까지가 id : post-box <div>영역  --------------------------------------------------------------------->
+        <div class="myedit" id="edit-box">
+        </div>
+        <div class="delete" id="delete-box">
+        </div>
+    </div>
+    <div class="mycards">
+        <div class="row row-cols-1 row-cols-md-4 g-4" id="cards-box">
+        </div>
+    </div>
+    <div class="wrap">
+    </div>
+    </body>
+    </html>
+{% endblock %}
